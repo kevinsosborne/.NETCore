@@ -1,0 +1,56 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>Write a new Review</h1>
+
+<div>
+    @{
+        foreach(var error in ViewBag.errors)
+        {
+            //If there are any errors for a field...
+            if(@error.Errors.Count > 0)
+            {
+                // We show the first error for that field
+                <p>@error.Errors[0].ErrorMessage</p>
+            }
+        }
+    }
+</div>
+
+<div class="container">
+<form action="/process" method="post">
+    <div class="form-group row">
+        <label for="review_name" class="col-sm-2 col-form-label">Reviewer Name:  </label>
+        <div class="col-sm-10">
+            <input type="text" id="review_name" name="reviewer_name" value="">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="restaurant_name" class="col-sm-2 col-form-label">Restaurant Name:  </label>
+        <div class="col-sm-10">
+            <input type="text" id="restaurant_name" name="restaurant_name" value="">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="review" class="col-sm-2 col-form-label">Restaurant Name:  </label>
+        <div class="col-sm-10">
+            <textarea name="review" id="review" cols="35" rows="3"></textarea>
+        </div>
+    </div>
+     <div class="form-group row">
+        <label for="date" class="col-sm-2 col-form-label">Restaurant Name:  </label>
+        <div class="col-sm-10">
+            <input type="date" id="date" name="vist_date" value="">
+        </div>
+    </div>
+        <p><label for="stars">Stars:  </label><select name="stars" id="stars">
+            <option ></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select></p>
+        <input type="submit" name="submit" value="Submit">
+</form>
+</div>
