@@ -1,0 +1,27 @@
+
+    <a class="btn btn-primary" href="/dashboard">Dashboard</a>
+
+       <a class="btn btn-primary" href="/logout">Logout</a>
+       
+        <h1>@ViewBag.CurrWedding.WedderOne and @ViewBag.CurrWedding.WedderTwo's Wedding</h1>
+        
+        <hr>
+
+        <h3><b>Date: </b> @ViewBag.CurrWedding.Date.ToString("MMMM dd, yyyy")</h3>
+
+        <h3><b>Guests: </b></h3>
+        
+                 @if(@ViewBag.CurrWedding.Guests.Count > 0)
+                 {
+                    foreach (var x in @ViewBag.CurrWedding.Guests) 
+                    {
+                    <ul>
+                        <li>@x.User.Fname @x.User.Lname</li>
+                    </ul>
+                    }
+                }
+                else{
+                    <p>No Guests have RSVP!</p>
+                }
+
+

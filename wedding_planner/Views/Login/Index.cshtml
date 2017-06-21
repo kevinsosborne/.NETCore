@@ -1,0 +1,60 @@
+@{
+    ViewData["Title"] = "Wedding Planner";
+}
+<div>
+    @{
+        foreach(var error in @ViewBag.Errors)
+        {
+            if(@error.Errors.Count > 0)
+            {
+                <p style = "color: red;">@error.Errors[0].ErrorMessage</p>
+            }
+        }
+    }
+    <p style = "color: red;">@ViewBag.EmailErrors</p>
+</div>
+
+<div class="register">
+    <h1>Register</h1>
+
+    <form action="/register" method="post">
+    <div class="form-group">
+    <label for="Firstname">First Name: </label>
+    <input type="text" class="form-control" id="Firstname" name="fname">
+    </div>
+    <div class="form-group">
+    <label for="Lastname">Last Name: </label>
+    <input type="text" class="form-control" id="Lastname" name="lname">
+    </div>
+    <div class="form-group">
+    <label for="Email">Email:</label>
+    <input type="text" class="form-control" id="Email" name="email">
+    </div>
+    <div class="form-group">
+    <label for="Password">Password: </label>
+    <input type="password" class="form-control" id="Password" name="password">
+    </div>
+    <div class="form-group">
+    <label for="ConfirmPass">Confirm Password: </label>
+    <input type="password" class="form-control" id="ConfirmPass" name="confirm_password">
+    </div>
+    <input type="submit" value="Register">
+    </form>
+</div>
+
+<div class="login">
+    <h1>Login</h1>
+
+    <form action="/login" method="post">
+    <div class="form-group">
+    <label for="LogE">Email:</label>
+    <input type="text" class="form-control" id="LogE" name="email">
+    </div>
+    <div class="form-group">
+    <label for="LogPass">Password: </label>
+    <input type="text" class="form-control" id="LogPass" name="password">
+    </div>
+    <input type="submit" value="Login">
+    </form>
+</div>
+
